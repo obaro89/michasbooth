@@ -6,6 +6,8 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import logo from "../../public/img/michaslogo.png";
 
+console.log(logo);
+
 import Link from "next/link";
 
 const Header = () => {
