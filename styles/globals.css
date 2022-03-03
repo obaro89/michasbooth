@@ -10,7 +10,7 @@ body {
 }
 
 html {
-  font-size: min(max(1rem, 4vw), 22px);
+  font-size: min(max(1rem, 4vw), 18px);
 }
 a {
   color: inherit;
@@ -102,6 +102,10 @@ a {
 
   .cart {
     font-size: xx-large !important;
+  }
+
+  .search-input {
+    font-size: min(max(1rem, 4vw), 18px);
   }
 }
 /* @media screen and (max-width: 768px) {

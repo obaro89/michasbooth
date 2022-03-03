@@ -10,7 +10,10 @@ const Hero = () => {
         <HeroContent className="container">
           <HeroMessage>Quality Products Quality You</HeroMessage>
           <HeroSearchBox>
-            <HeroSearch placeholder="Search for your preferred item" />
+            <HeroSearch
+              placeholder="Search for your preferred item"
+              className="search-input"
+            />
             <SearchButton>
               <SearchIcon />
             </SearchButton>
