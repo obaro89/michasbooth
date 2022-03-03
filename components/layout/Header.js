@@ -4,7 +4,7 @@ import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import logo from "../../public/img/michaslogo.png";
+import logo from "../../public/img/michaslogo.PNG";
 
 console.log(logo);
 
