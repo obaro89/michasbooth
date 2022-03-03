@@ -14,7 +14,7 @@ const Footer = () => {
   let height = 50;
   return (
     <FooterContainer>
-      <FooterContent className="container">
+      <FooterContent className="container footer">
         <div className="info flexitem">
           <h3>Michasbooth</h3>
           <ul>

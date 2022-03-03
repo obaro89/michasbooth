@@ -6,8 +6,6 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import logo from "../../public/img/michaslogo.PNG";
 
-console.log(logo);
-
 import Link from "next/link";
 
 const Header = () => {
@@ -24,13 +22,15 @@ const Header = () => {
         </p>
       </HeaderBar>
 
-      <Menu>
-        <Hamburger fontSize="large" />
-        <Logo src={logo.src} />
+      <Menu className="menu">
+        <Hamburger fontSize="large" className="hamburger" />
+        <Link href="/" passHref>
+          <Logo src={logo.src} />
+        </Link>
         <Link href="/cart" passHref>
-          <Cart>
+          <Cart className="cart">
             <CartIcon fontSize="large" />
-            <span className="cartno">30</span>
+            <span className="cartno">0</span>
           </Cart>
         </Link>
       </Menu>
