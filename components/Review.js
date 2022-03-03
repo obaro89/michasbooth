@@ -43,6 +43,7 @@ const ReviewTitle = styled.h3`
   color: black;
   margin: 0;
   padding: 5px;
+  text-align: center;
 `;
 
 const ReviewText = styled.p`
