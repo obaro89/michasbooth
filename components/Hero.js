@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <HeroComponent>
       <HeroOverlay>
-        <HeroContent className="container">
+        <HeroContent className="container contain">
           <HeroMessage>Quality Products Quality You</HeroMessage>
           <HeroSearchBox>
             <HeroSearch

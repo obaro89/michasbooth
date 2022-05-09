@@ -13,7 +13,7 @@ const ProductAccordion = () => {
   };
 
   return (
-    <div className="accordion mobile">
+    <div className="accordion">
       <Accordion
         square={true}
         expanded={expanded === "panel1"}

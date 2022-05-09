@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingTag from "./HeadingTag";
+import HeadingTagSmall from "./HeadingTagSmall";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
@@ -9,7 +9,7 @@ const CustomersReviews = () => {
     <div className="customers-reviews">
       <Title>
         <VerifiedIcon sx={{ color: "#7851A9" }} />
-        <HeadingTag
+        <HeadingTagSmall
           title={"Verified Customers Reviews "}
           style={{
             fontSize: 12,

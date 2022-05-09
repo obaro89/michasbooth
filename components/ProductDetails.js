@@ -13,14 +13,14 @@ const ProductDetails = ({ productId }) => {
   return (
     <ProductMain className="product-details">
       <div className="pimage">
-        <ProductImage src={data.img} />
+        <ProductImage src={data.img} className="image-src" />
       </div>
       <ProductInfo className="product-info">
         <HeadingTag
           title={data.title}
           style={{ textAlign: "center", fontSize: 38, margin: 0 }}
         />
-        <p className="center-items mobile">
+        <p className="center-items">
           <Rating rating={3} fontSize={38} />
           <span>20 Reviews</span>
         </p>

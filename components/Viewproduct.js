@@ -6,7 +6,7 @@ const itemData = require("./data");
 
 const Viewproduct = ({ productId }) => {
   return (
-    <div className="container viewproduct">
+    <div className="viewproduct">
       <ProductDetails productId={productId} />
       <ProductsYouMayLike category={itemData} />
     </div>
