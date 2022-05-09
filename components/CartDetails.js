@@ -51,12 +51,9 @@ const CartDetails = () => {
           <CartControl />
           <CartControl />
           <CartControl />
-
-          <TotalItems>
-            <span>Total Items </span>4
-          </TotalItems>
           <TotalAmount>
-            <span>Total Amount </span>$ 1234
+            <span className="text">Total</span>{" "}
+            <span className="price">$ 6234</span>
           </TotalAmount>
         </div>
       </div>
@@ -73,20 +70,20 @@ const CartContent = styled.div`
   margin-top: 130px;
 `;
 
-const TotalItems = styled.div`
-  margin-top: 10px;
-
-  span {
-    padding: 25px;
-    font-weight: 500;
-  }
-`;
-
 const TotalAmount = styled.div`
-  margin-top: 10px;
-  padding-bottom: 15px;
-  span {
-    padding: 25px;
-    font-weight: 500;
+  text-align: right;
+  padding-right: 20px;
+  padding: 20px;
+  .price {
+    background-color: #7951a92f;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #4c2879;
+    margin-left: 10px;
+  }
+  .text {
+    font-weight: 600;
   }
 `;

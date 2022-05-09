@@ -32,8 +32,8 @@ const CartControl = () => {
             className="product-img"
             src={photo.src}
             alt={photo.src}
-            width={100}
-            height={100}
+            width={80}
+            height={80}
           />
           <div className="product-info">
             <h4 className="product-title">Hair Extension</h4>
