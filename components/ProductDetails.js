@@ -17,7 +17,7 @@ const ProductDetails = ({ productId }) => {
 
   const products = productsState.products;
   const data = products.find((p) => p.id === productId);
-  console.log(data);
+
   const isInCart = cartState.cart.some((cartItem) => cartItem.id === productId);
 
   const handleAddToCart = () => {
