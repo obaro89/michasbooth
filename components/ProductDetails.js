@@ -1,38 +1,62 @@
 import Rating from "./Rating";
 import React from "react";
 import styled from "styled-components";
-import itemData from "./data.js";
 import HeadingTag from "./HeadingTag";
 import ProductAccordion from "./ProductAccordion";
 import ProductVideo from "./ProductVideo";
 import CustomersReviews from "./CustomersReviews";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+} from "../redux/features/cartSlice/cartSlice";
 
 const ProductDetails = ({ productId }) => {
-  const data = itemData.find((p) => p.author === productId);
+  const dispatch = useDispatch();
+  const { cartState, productsState } = useSelector((state) => state);
 
+  const products = productsState.products;
+  const data = products.find((p) => p.id === productId);
+  console.log(data);
+  const isInCart = cartState.cart.some((cartItem) => cartItem.id === productId);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(data));
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeFromCart(data));
+  };
   return (
     <ProductMain className="product-details">
       <div className="pimage">
-        <ProductImage src={data.img} className="image-src" />
+        <ProductImage src={data.image} className="image-src" />
       </div>
       <ProductInfo className="product-info">
         <HeadingTag
-          title={data.title}
+          title={data.name}
           style={{ textAlign: "center", fontSize: 38, margin: 0 }}
         />
         <p className="center-items">
-          <Rating rating={3} fontSize={38} />
-          <span>20 Reviews</span>
+          <Rating rating={data.rating} fontSize={38} />
+          <span>{data.numReviews} Reviews</span>
         </p>
         <p className="center-items">
           <CustomersReviews />
         </p>
-        <h6 className="center-items">32 PCS Available</h6>
+        <h6 className="center-items">{data.quantityInStock} PCS Available</h6>
         <p className="center-items">
           <ProductVideo />
         </p>
         <p className="center-items">
-          <button className="primary-btn"> ADD TO CART ($ 433.99)</button>
+          <button
+            disabled={isInCart}
+            className="primary-btn"
+            onClick={handleAddToCart}
+          >
+            {" "}
+            ADD TO CART ($ {data.price})
+          </button>
         </p>
 
         <p className="center-items">

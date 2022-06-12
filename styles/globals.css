@@ -8,6 +8,9 @@ body {
   background-color: white;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
+button:disabled {
+  background: #dddddd;
+}
 
 html {
   font-size: min(max(1rem, 4vw), 18px);

@@ -5,10 +5,12 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import logo from "../../public/img/michaslogo.PNG";
+import { useSelector } from "react-redux";
 
 import Link from "next/link";
 
 const Header = () => {
+  const { cartState } = useSelector((state) => state);
   return (
     <div className="header">
       <HeaderBar>
@@ -30,7 +32,7 @@ const Header = () => {
         <Link href="/cart" passHref>
           <Cart className="cart">
             <CartIcon fontSize="large" />
-            <span className="cartno">0</span>
+            <span className="cartno">{cartState.cart.length}</span>
           </Cart>
         </Link>
       </Menu>
@@ -57,6 +59,7 @@ const Hamburger = styled(MenuOutlinedIcon)`
 const Logo = styled.img`
   height: 60px;
   width: 220px;
+  cursor: pointer;
 `;
 
 const CartIcon = styled(ShoppingCartOutlinedIcon)`

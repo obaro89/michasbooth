@@ -1,8 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import CartControl from "./CartControl";
+import { useSelector } from "react-redux";
 
 const CartDetails = () => {
+  const {
+    cartState: { cart },
+  } = useSelector((state) => state);
+  const totalAmount = cart.reduce(
+    (prev, curr) => prev + curr.price * curr.quantity,
+    0
+  );
+  const totalAmountDiscounted = cart.reduce(
+    (prev, curr) =>
+      totalAmount - (prev + curr.price * curr.quantity) * (curr.discount / 100),
+    0
+  );
   return (
     <CartContent className="cart-content">
       <h3 className="center-items">Your Shopping Cart</h3>
@@ -48,12 +61,22 @@ const CartDetails = () => {
           </form>
         </div>
         <div className="cart-qty">
-          <CartControl />
-          <CartControl />
-          <CartControl />
+          {cart.length === 0 && <p>Cart is Empty</p>}
+          {cart.length > 0 &&
+            cart.map((cartItem) => (
+              <CartControl cartItem={cartItem} key={cartItem.id} />
+            ))}
           <TotalAmount>
             <span className="text">Total</span>{" "}
-            <span className="price">$ 6234</span>
+            <span className="price">
+              $ {Math.round(totalAmount * 100) / 100}
+            </span>
+          </TotalAmount>
+          <TotalAmount>
+            <span className="text">You pay</span>{" "}
+            <span className="price">
+              $ {Math.round(totalAmountDiscounted * 100) / 100}
+            </span>
           </TotalAmount>
         </div>
       </div>

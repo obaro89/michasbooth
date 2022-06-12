@@ -1,6 +1,8 @@
 .cart-control {
   margin-bottom: 10px;
-
+  button:disabled {
+    background: #dddddd;
+  }
   .cart-control:first-child {
     margin-top: 15px;
   }
@@ -83,6 +85,9 @@
           border-radius: 4px;
           &:hover {
             background-color: #4c2879;
+          }
+          &:disabled {
+            background: #dddddd;
           }
         }
         .qty-no {

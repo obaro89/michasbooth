@@ -1,16 +1,19 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import styled from "styled-components";
-const itemData = require("./data");
+import { useSelector } from "react-redux";
+
 const Products = () => {
+  const { cartState, productsState } = useSelector((state) => state);
+
   return (
     <ProductGallery>
-      {itemData.map((data) => (
+      {productsState.products.map((data) => (
         <ProductCard
-          photo={data.img}
-          productName={data.title}
-          id={data.author}
-          key={data.title}
+          photo={data.image}
+          productName={data.name}
+          id={data.id}
+          key={data.id}
         />
       ))}
     </ProductGallery>

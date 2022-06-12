@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Rating from "./Rating";
 
 const ProductsYouMayLike = ({ category }) => {
-  category.length = 4;
   return (
     <Fragment>
       <div>
@@ -15,18 +14,18 @@ const ProductsYouMayLike = ({ category }) => {
         />
       </div>
       <Wrapper>
-        {category.map((p, i) => {
+        {category.map((p) => {
           return (
-            <Link href={`/product/${p.author}`} key={i} passHref>
+            <Link href={`/product/${p.id}`} key={p.id} passHref>
               <FlexItems>
-                <FlexImage src={p.img} />
+                <FlexImage src={p.image} />
                 <ProductTag>
                   <ProductName>
-                    <span>{p.title}</span>
-                    <Rating rating={3} />
+                    <span>{p.name}</span>
+                    <Rating rating={p.rating} />
                   </ProductName>
                   <ProductPrice>
-                    <span>$ 119.99</span>
+                    <span>$ {p.price}</span>
                     <button>View</button>
                   </ProductPrice>
                 </ProductTag>

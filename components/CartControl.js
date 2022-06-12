@@ -1,58 +1,62 @@
-import React, { useState } from "react";
-import photo from "../public/img/photo.jpg";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+} from "../redux/features/cartSlice/cartSlice";
 import Image from "next/image";
 
-const itemData = require("./data");
-
-const CartControl = () => {
-  const [cartState, setCartState] = useState({
-    qty: 1,
-  });
+const CartControl = ({ cartItem }) => {
+  const dispatch = useDispatch();
+  const { cartState } = useSelector((state) => state);
 
   const increaseCart = () => {
-    setCartState({
-      ...cartState,
-      qty: cartState.qty + 1,
-    });
+    dispatch(increaseQty(cartItem));
   };
 
   const decreaseCart = () => {
-    if (cartState.qty > 0) {
-      setCartState({
-        ...cartState,
-        qty: cartState.qty - 1,
-      });
-    }
+    dispatch(decreaseQty(cartItem));
   };
+
   return (
     <div className="cart-control">
       <div className="cart-control-inner">
         <div className="product-left">
           <Image
             className="product-img"
-            src={photo.src}
-            alt={photo.src}
+            src={cartItem.image}
+            alt={cartItem.name}
             width={80}
             height={80}
           />
           <div className="product-info">
-            <h4 className="product-title">Hair Extension</h4>
-            <span className="product-price">$ 190.99</span>
+            <h4 className="product-title">{cartItem.name}</h4>
+            <span className="product-price">$ {cartItem.price}</span>
             <div className="qty-btn">
-              <button onClick={decreaseCart}>-</button>
-              <span className="qty-no">{cartState.qty}</span>
-              <button onClick={increaseCart}>+</button>
+              <button disabled={cartItem.quantity < 1} onClick={decreaseCart}>
+                -
+              </button>
+              <span className="qty-no">{cartItem.quantity}</span>
+              <button
+                disabled={cartItem.quantity >= cartItem.quantityInStock}
+                onClick={increaseCart}
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
         <div className="product-right">
           <div className="qty-amount">
-            <span>Qty</span> <span className="qtys-no">{cartState.qty}</span>
+            <span>Qty</span>{" "}
+            <span className="qtys-no">{cartItem.quantity}</span>
           </div>
           <div className="total-div">
             ${" "}
             <span className="total-amt">
-              {Math.floor(cartState.qty * 190.99 * 100) / 100}
+              {Math.round(cartItem.quantity * cartItem.price * 100) / 100}
             </span>
           </div>
         </div>
